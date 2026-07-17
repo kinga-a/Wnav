@@ -1,0 +1,243 @@
+/* nav-app.css - Wnav 管理面板样式 */
+
+/* ---------- 悬浮按钮 ---------- */
+.nav-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nav-fab-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #f1404b;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-fab-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* ---------- 弹窗 ---------- */
+.nav-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: navFadeIn 0.2s ease;
+}
+@keyframes navFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.nav-modal-content {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  animation: navSlideUp 0.3s ease;
+}
+@keyframes navSlideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.nav-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+}
+.nav-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+.nav-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  line-height: 1;
+}
+.nav-modal-close:hover { color: #333; }
+.nav-modal-body {
+  padding: 20px;
+}
+.nav-modal-body input,
+.nav-modal-body textarea,
+.nav-modal-body select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.nav-modal-body input:focus,
+.nav-modal-body textarea:focus,
+.nav-modal-body select:focus {
+  outline: none;
+  border-color: #f1404b;
+}
+.nav-modal-body textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.nav-modal-body label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+.nav-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+/* ---------- 按钮 ---------- */
+.nav-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.nav-btn:hover {
+  background: #f5f5f5;
+}
+.nav-btn-primary {
+  background: #f1404b;
+  color: #fff;
+  border-color: #f1404b;
+}
+.nav-btn-primary:hover {
+  background: #d63842;
+}
+.nav-btn-danger {
+  background: #ff4d4f;
+  color: #fff;
+  border-color: #ff4d4f;
+}
+.nav-btn-danger:hover {
+  background: #ff7875;
+}
+
+/* ---------- 右键菜单 ---------- */
+.nav-context-menu {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  padding: 6px 0;
+  min-width: 120px;
+  animation: navFadeIn 0.15s ease;
+}
+.nav-context-item {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.nav-context-item:hover {
+  background: #f5f5f5;
+}
+.nav-context-danger {
+  color: #ff4d4f;
+}
+.nav-context-danger:hover {
+  background: #fff1f0;
+}
+
+/* ---------- Toast 提示 ---------- */
+.nav-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #fff;
+  z-index: 10001;
+  animation: navSlideDown 0.3s ease;
+}
+@keyframes navSlideDown {
+  from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+.nav-toast-info { background: #1890ff; }
+.nav-toast-success { background: #52c41a; }
+.nav-toast-error { background: #ff4d4f; }
+
+/* ---------- 天气 ---------- */
+#nav-weather {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #666;
+}
+
+/* ---------- 夜间模式适配 ---------- */
+.io-black-mode .nav-modal-content,
+.io-black-mode .nav-context-menu {
+  background: #1a1a2e;
+  color: #e0e0e0;
+}
+.io-black-mode .nav-modal-body input,
+.io-black-mode .nav-modal-body textarea,
+.io-black-mode .nav-modal-body select {
+  background: #2d2d44;
+  border-color: #444;
+  color: #e0e0e0;
+}
+.io-black-mode .nav-modal-header {
+  border-color: #333;
+}
+.io-black-mode .nav-modal-header h3 {
+  color: #e0e0e0;
+}
+.io-black-mode .nav-btn {
+  background: #2d2d44;
+  border-color: #444;
+  color: #e0e0e0;
+}
+.io-black-mode .nav-btn:hover {
+  background: #3d3d5c;
+}
+.io-black-mode .nav-context-item:hover {
+  background: #2d2d44;
+}
